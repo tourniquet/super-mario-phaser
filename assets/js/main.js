@@ -22,15 +22,26 @@ let mainState = {
     this.brick = this.bricks.create(0, game.world.height - 300, 'brick')
     this.brick.body.immovable = true
 
-    // add jump to spacebar
-    let spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
-    spaceKey.onDown.add(this.jump, this)
+    this.brick = this.bricks.create(100, game.world.height - 300, 'brick')
+    this.brick.body.immovable = true
+
+    this.cursors = game.input.keyboard.createCursorKeys()
   },
   update: function () {
     game.physics.arcade.collide(this.player, this.bricks)
-  },
-  jump () {
-    this.player.body.velocity.y = -100
+
+    this.player.body.velocity.x = 0
+
+    if (this.cursors.left.isDown) {
+      this.player.body.velocity.x = -150
+    } else if (this.cursors.right.isDown) {
+      this.player.body.velocity.x = 150
+    }
+
+    // if player is on the platform, jump on "up" key
+    if (this.cursors.up.isDown && this.player.body.touching.down) {
+      this.player.body.velocity.y = -100
+    }
   }
 }
 
