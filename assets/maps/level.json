@@ -17,15 +17,15 @@
  "tileheight":50,
  "tilesets":[
         {
-         "columns":2,
+         "columns":3,
          "firstgid":1,
          "image":"..\/images\/tiles.png",
          "imageheight":50,
-         "imagewidth":100,
+         "imagewidth":150,
          "margin":0,
          "name":"tiles",
          "spacing":0,
-         "tilecount":2,
+         "tilecount":3,
          "tileheight":50,
          "tilewidth":50
         }],

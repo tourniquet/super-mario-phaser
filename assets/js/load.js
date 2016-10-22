@@ -6,7 +6,8 @@ let loadState = {
     game.load.image('background', 'assets/images/background.png')
     // load game image assets
     game.load.image('player', 'assets/images/player.png')
-    // game.load.image('brick', 'assets/images/brick.png')
+    game.load.image('brick', 'assets/images/brick.png')
+    game.load.image('question', 'assets/images/question.png')
 
     // load first level tiles
     game.load.image('tiles', 'assets/images/tiles.png')

@@ -1,4 +1,4 @@
-/* globaals game */
+/* globals game */
 
 let bootState = {
   create () {
