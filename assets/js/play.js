@@ -9,6 +9,8 @@ let playState = {
     game.physics.startSystem(Phaser.Physics.ARCADE)
 
     this.player = game.add.sprite(10, 600, 'player')
+    // player.isBig is true after eating mushroom
+    this.player.isBig = false
     game.physics.arcade.enable(this.player)
     this.player.body.bounce.y = 0.2
     this.player.body.gravity.y = 300
@@ -61,7 +63,16 @@ let playState = {
     // when player jump, because player.y value on axe is bigger than brick.y value
     if (player.y > brick.y) {
       player.body.velocity.y = 150
-      brick.kill()
+
+      // if player is big, destroy brick
+      if (player.isBig) {
+        brick.kill()
+      }
+
+      // if player is not big, just ease brick
+      if (!player.isBig) {
+        game.add.tween(brick).to({ y: [brick.y - 20, brick.y] }, 200, Phaser.Easing.Linear.None, true)
+      }
     }
   }
 }
