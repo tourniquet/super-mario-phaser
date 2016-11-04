@@ -61,7 +61,10 @@ let playState = {
   destroyBrick (player, brick) {
     // this will allow collide player with bottom side of brick
     // when player jump, because player.y value on axe is bigger than brick.y value
-    if (player.y > brick.y) {
+    // I added +50 to brick.y axe, because if player.y is only bigger than brick.y
+    // when player is touching sides of bricks, it will move up
+    // remove +50 to see what is happening
+    if (player.y > brick.y + 50) {
       player.body.velocity.y = 150
 
       // if player is big, destroy brick
